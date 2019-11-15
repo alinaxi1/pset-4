@@ -8,3 +8,10 @@ let positive = Number(readlineSync.question("\nPositive Integer: "));
 while (Number.isNaN(positive) || positive < MIN || positive > MAX || !Number.isInteger(positive)) {
   positive = Number(readlineSync.question("\nPositive Integer: "));
 }
+
+while (positive > 0) {
+  let digit = positive % 10;
+  positive = positive / 10;
+
+  console.log(digit);
+}
