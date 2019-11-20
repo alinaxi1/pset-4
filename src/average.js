@@ -5,17 +5,20 @@ const MAX = Number.MAX_SAFE_INTEGER;
 
 let sum = 0;
 let num = 0;
-let value = Number(readlineSync.question("\nNon-negative Integer: "));
+let value = 0;
+console.log("\n");
 
-while (value !== -1 && value > MIN && value < MAX && Number.isInteger(value)) {
+while (value !== -1 && value >= MIN && value <= MAX && Number.isInteger(value)) {
   value = Number(readlineSync.question("Non-negative Integer: "));
 
   if (value !== -1) {
       sum = sum + value;
-      num++
+      num++;
   }
+
 }
+
 sum = sum / num;
-sum = sum.toFixed(3);
-sum = sum.toLocaleString('en');
-console.log("\n" + sum);
+sum = sum.toLocaleString("en", {minimumFractionDigits: 3, maximumFractionDigit: 3})
+
+console.log("\n" + sum + ".");
