@@ -18,4 +18,7 @@ while (Number.isNaN(n) || n < MIN || n > MAX || !Number.isInteger(n)) {
       num2 = result;
   }
 }
+
+result = result.toLocaleString("en", {minimumFractionDigits: 3, maximumFractionDigit: 3});
+
 console.log("\n" + result);
