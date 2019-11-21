@@ -9,7 +9,7 @@ while (Number.isNaN(positive) || positive < MIN || positive > MAX || !Number.isI
   positive = Number(readlineSync.question("Positive Integer: "));
 }
 
-console.log("\n");
+process.stdout.write("\n");
 
 while (positive > 0) {
   let digit = positive % 10;

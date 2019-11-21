@@ -6,12 +6,12 @@ const MAX = Number.MAX_SAFE_INTEGER;
 let sum = 0;
 let num = 0;
 let value = 0;
-console.log("\n");
+process.stdout.write("\n");
 
-while (value !== -1 && value >= MIN && value <= MAX && Number.isInteger(value)) {
+while (value >= MIN && value <= MAX && Number.isInteger(value)) {
   value = Number(readlineSync.question("Non-negative Integer: "));
 
-  if (value !== -1) {
+  if (value > 0) {
       sum = sum + value;
       num++;
   }
@@ -19,6 +19,6 @@ while (value !== -1 && value >= MIN && value <= MAX && Number.isInteger(value)) 
 }
 
 sum = sum / num;
-sum = sum.toLocaleString("en", {minimumFractionDigits: 3, maximumFractionDigit: 3})
+sum = sum.toLocaleString("en", {minimumFractionDigits: 3, maximumFractionDigit: 3});
 
 console.log("\n" + sum + ".");
