@@ -9,7 +9,7 @@ let value = 0;
 process.stdout.write("\n");
 
 while (value >= MIN && value <= MAX && Number.isInteger(value)) {
-  value = Number(readlineSync.question("Non-negative Integer: "));
+  value = Number(readlineSync.question("Non-negative integer: "));
 
   if (value > 0) {
       sum = sum + value;

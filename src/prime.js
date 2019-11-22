@@ -8,7 +8,7 @@ let prime = 0;
 process.stdout.write("\n");
 
 while (Number.isNaN(value) || value < MIN || value > MAX || !Number.isInteger(value)) {
-    var value = Number(readlineSync.question("Non-negative Integer: "));
+    var value = Number(readlineSync.question("Non-negative integer: "));
 
     if (value > 0 && value !== 1 && value !== 2) {
       for (var i = 2; i < value; i++) {

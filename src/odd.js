@@ -1,13 +1,13 @@
 const readlineSync = require("readline-sync");
 
-const MIN = Number.MIN_SAFE_INTEGER;
+const MIN = 1;
 const MAX = Number.MAX_SAFE_INTEGER;
 
+let positive = Number(readlineSync.question("\nPositive integer: "));
 let sum = 0;
-process.stdout.write("\n");
 
 while (Number.isNaN(positive) || positive < MIN || positive > MAX || !Number.isInteger(positive)) {
-  var positive = Number(readlineSync.question("Positive Integer: "));
+  positive = Number(readlineSync.question("Positive integer: "));
 }
 
 process.stdout.write("\n");
