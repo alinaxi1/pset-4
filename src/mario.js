@@ -9,12 +9,17 @@ while (Number.isNaN(height) || height < MIN || height > MAX || !Number.isInteger
   var height = Number(readlineSync.question("Height: "));
 }
 
-for (var i = 1; i <= height; i++) {
+process.stdout.write("\n");
+
+  for (var i = 1; i <= height; i++) {
     var row = '';
 
-    for (var j = 1; j <= i; j++) {
-      row += '#';
+    for (var j = 1; j <= (height - i); j++) {
+      row += ' ';
     }
 
-    console.log(row);
-  }
+    for (var k = 1; k <= i; k++) {
+      row += '#';
+    }
+    console.log(row + "#");
+}

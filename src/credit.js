@@ -21,10 +21,16 @@ let nCheck = 0, bEven = false;
     nCheck += nDigit;
     bEven = !bEven;
   }
-  return (nCheck % 10) == 0;
 
-  if (nCheck == 0 && num.length(15)) {
+  num.toString();
+
+  if (num.length == 15 && num.charAt(0) == 3 && (num.charAt(1) == 4 || num.charAt(1) == 7)) {
     console.log("\nAmex.");
-  } else if (nCheck == 0 && num.length(16)) {
-    console.log("\nMastercard.")
+  } else if (num.length == 16 && num.charAt(0) == 5 && num.charAt(1) <= 5 && num.charAt(1) >= 1 && nCheck == 0) {
+    console.log("\nMastercard.");
+  } else if (num.length == (13 || 16) && num.charAt(0) == 4 && nCheck == 0) {
+    console.log("\nVisa.");
+  } else {
+    console.log("\nInvalid.");
   }
+  return (nCheck % 10 == 0);
