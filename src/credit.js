@@ -1,36 +1,42 @@
 const readlineSync = require("readline-sync");
 
 const MIN = 1;
-const MAX = 5600000000000000;
+const MAX = 9999999999999999;
 
+let creditCard;
 process.stdout.write("\n");
 
-while (Number.isNaN(num) || num < MIN || num > MAX || !Number.isInteger(num)) {
-  var num = Number(readlineSync.question("Number: "));
+while (creditCard > MAX || creditCard < MIN || Number.isNaN(creditCard) || creditCard % 1 !==0) {
+  creditCard = String(readlineSync.question("Number: "));
 }
 
-let nCheck = 0, bEven = false;
+let length = creditCard.length;
+let creditAdd = 0;
 
-  for (var n = num.length - 1; n >= 0; n--) {
-    var cDigit = num.charAt(n),
-        nDigit = parseInt(cDigit, 10);
-
-    if (bEven && (nDigit *= 2) > 9) {
-      nDigit -= 9;
-    }
-    nCheck += nDigit;
-    bEven = !bEven;
-  }
-
-  num.toString();
-
-  if (num.length == 15 && num.charAt(0) == 3 && (num.charAt(1) == 4 || num.charAt(1) == 7)) {
-    console.log("\nAmex.");
-  } else if (num.length == 16 && num.charAt(0) == 5 && num.charAt(1) <= 5 && num.charAt(1) >= 1 && nCheck == 0) {
-    console.log("\nMastercard.");
-  } else if (num.length == (13 || 16) && num.charAt(0) == 4 && nCheck == 0) {
-    console.log("\nVisa.");
+for (let i = 0; i >= 0; i-= 2) {
+  let doubleDigits = String(creditCard.charAt(i) * 2);
+  let digitLength = doubleDigits.length;
+  if (digitLength > 1) {
+    creditAdd = creditAdd + Number(doubleDigits.charAt(0)) + Number(doubleDigits.charAt(1));
   } else {
-    console.log("\nInvalid.");
+    creditAdd = creditAdd + Number(doubleDigits);
   }
-  return (nCheck % 10 == 0);
+}
+for (let i = length - 1; i >= 0; i -=2) {
+  let otherNumber = Number(creditCard.charAt(i));
+  creditAdd += otherNumber;
+}
+
+if(String(creditAdd).charAt(String(creditAdd).length - 1 == "0")) {
+  if ((length == 15 && creditCard.charAt(0) == "3") && (creditCard.charAt(1) == "4" || creditCard.charAt(1) == "7")) {
+    console.log("\nAmex.");
+} else if (length >= 13 && length <= 16 && creditCard.charAt(0) == "4") {
+  console.log("\nVisa.");
+} else if (length == 16 && creditCard.charAt(0) == "5" && (creditCard.charAt(1) == "1") || creditCard.charAt(1) == "2" || creditCard.charAt(1) == "3" || creditCard.charAt(1) == "4" || creditCard.charAt(1) == "5"){
+  console.log("\nMastercard.");
+} else {
+  console.log("\nInvalid.");
+}
+} else {
+  console.log("\nInvalid.");
+}
